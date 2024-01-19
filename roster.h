@@ -4,8 +4,9 @@
 #include <vector>
 #include "student.h"
 
-Student *classRosterArray[5];
+using namespace std;
 
 class Roster {
-
+	public:
+		Student *classRosterArray[5];
 };

@@ -2,76 +2,78 @@
 #include <string>
 #include <vector>
 #include "student.h"
+#include "degree.h"
 
-Student::Student(string ID, string first, string last, string email,
-	int age, vector<int> days(3),DegreeProgram program) {
+using namespace std;
+
+Student::Student(string ID = "", string first = "", string last ="",
+	string emailaddress = "", int days1 = -1, int days2 = -1, 
+	int days3 = -1, DegreeProgram degree = SOFTWARE) {
+	
 	studentID = ID;
 	firstName = first;
 	lastName = last;
-	email = email;
-	age = age;
-	numDays[0] = days[0];
-	numDays[1] = days[1];
-	numDays[2] = days[2];
-	degreeProgram = program;
+	email = emailaddress;
+	numDays1 = days1;
+	degreeProgram = degree;
 }
 
-Student::GetID() {
-
+string Student::GetID() {
+	return studentID;
 }
 
-Student::GetFirst() {
-
+string Student::GetFirst() {
+	return firstName;
 }
 
-Student::GetLast() {
-
+string Student::GetLast() {
+	return lastName;
 }
 
-Student::GetEmail() {
-
+string Student::GetEmail() {
+	return email;
 }
 
-Student::GetAge() {
-
+int Student::GetAge() {
+	return age;
 }
 
-Student::GetNumDays() {
-
+int Student::GetNumDays() {
+	return numDays1;
 }
 
-Student::GetProgram() {
-
+DegreeProgram Student::GetProgram() {
+	return degreeProgram;
 }
 
-Student::SetID() {
+void Student::SetID() {
 
 }
 
-Student::SetFirst() {
+void Student::SetFirst() {
 
 }
 
-Student::SetLast() {
+void Student::SetLast() {
 
 }
 
-Student::SetEmail() {
+void Student::SetEmail() {
 
 }
 
-Student::SetAge() {
+void Student::SetAge() {
 
 }
 
-Student::SetNumDays() {
+void Student::SetNumDays() {
 
 }
 
-Student::SetProgram() {
+void Student::SetProgram() {
 
 }
 
-Student::Print() {
+void Student::Print() {
 
 }
