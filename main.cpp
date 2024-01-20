@@ -22,12 +22,10 @@ int main() {
 	"A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
 	"A5,Dayton,Abbott,dabbo44@wgu.edu,137,7,9,27,SOFTWARE" };
 	string tempStudentString;
-	int tempStringSize;
-	int iteratorStack;
-	string ID = "-";
-	string first = "-";
-	string last = "-";
-	string emailAddress = "-";
+	string ID;
+	string first;
+	string last;
+	string emailAddress;
 	string ageStr;
 	int ageYrs;
 	string daysStr1;
@@ -39,7 +37,8 @@ int main() {
 	string Degree;
 	DegreeProgram program;
 	
-	for (int i = 0; i < 1; ++i) {
+
+	for (int i = 0; i < 5; ++i) {
 		tempStudentString = studentData[i];
 		for (int x = 0; x < 9; ++x) {
 			for (int j = 0; j < tempStudentString.size(); ++j) {
@@ -100,27 +99,24 @@ int main() {
 						else if (Degree == "SOFTWARE") {
 							program = SOFTWARE;
 						}
-						Student* student1 = new Student(ID, first,
-							last, emailAddress, ageYrs, days1,
-							days2, days3, program);
+
+						Student* student1 = new Student();
+						student1->SetID(ID);
+						student1->SetFirst(first);
+						student1->SetLast(last);
+						student1->SetEmail(emailAddress);
+						student1->SetAge(ageYrs);
+						student1->SetDaysInCourse(days1, days2, days3);
+						student1->SetProgram(program);
+						student1->Print();
 					}
 				}
 				
 			}
 		}
 	}
-	cout << student1->GetID() << "	" << student1->GetFirst() << 
-		"	" << student1->GetLast() << endl;
-
-	cout << ID << endl;
-	cout << first << endl;
-	cout << last << endl;
-	cout << emailAddress << endl;
-	cout << ageStr << endl;
-	cout << daysStr1 << endl;
-	cout << daysStr2 << endl;
-	cout << daysStr3 << endl;
-	cout << Degree << endl;
-
+	for (int i = 0; i < 5; ++i) {
+		cout < *classRosterArray.at(i); 
+	}
 	return 0;
 }

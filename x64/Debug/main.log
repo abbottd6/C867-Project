@@ -1,2 +1,6 @@
-﻿  student.cpp
+﻿  main.cpp
+  roster.cpp
+  student.cpp
+C:\Users\dayto\Desktop\WGU\C867 - Scripting and Programming Applications\main\student.cpp(82,6): warning C4101: 'tempVal': unreferenced local variable
+  Generating Code...
   main.vcxproj -> C:\Users\dayto\Desktop\WGU\C867 - Scripting and Programming Applications\main\x64\Debug\main.exe

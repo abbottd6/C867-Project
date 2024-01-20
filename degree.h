@@ -3,4 +3,5 @@
 
 using namespace std;
 
-enum DegreeProgram {SECURITY, NETWORK, SOFTWARE};
+enum DegreeProgram { SECURITY, NETWORK, SOFTWARE };
+

@@ -6,43 +6,44 @@
 
 using namespace std;
 
-Student::Student(string ID = "", string first = "", string last ="",
-	string emailAddress = "",int ageYrs = -1, int days1 = -1, int days2 = -1, 
-	int days3 = -1, DegreeProgram degree = SOFTWARE) {
+Student::Student() {
 	
-	studentID = ID;
-	firstName = first;
-	lastName = last;
-	email = emailAddress;
-	age = ageYrs;
-	numDays1 = days1;
-	numDays2 = days2;
-	numDays3 = days3;
-	degreeProgram = degree;
+	studentID;
+	firstName;
+	lastName;
+	email;
+	age;
+	daysInCourse;
+	degreeProgram;
 }
 
-string Student::GetID() {
+string Student::GetID() const {
 	return studentID;
 }
 
-string Student::GetFirst() {
+string Student::GetFirst() const {
 	return firstName;
 }
 
-string Student::GetLast() {
+string Student::GetLast() const {
 	return lastName;
 }
 
-string Student::GetEmail() {
+string Student::GetEmail() const {
 	return email;
 }
 
-int Student::GetAge() {
+int Student::GetAge() const {
 	return age;
 }
 
-int Student::GetNumDays() {
-	return numDays1;
+void Student::GetDaysInCourse() const {
+	for (int i = 0; i < 3; ++i) {
+		cout << daysInCourse.at(i);
+		if (i < 2) {
+			cout << ", ";
+		}
+	}
 }
 
 DegreeProgram Student::GetProgram() {
@@ -61,22 +62,28 @@ void Student::SetLast(string last) {
 	lastName = last;
 }
 
-void Student::SetEmail() {
-
+void Student::SetEmail(string emailAddress) {
+	email = emailAddress;
 }
 
-void Student::SetAge() {
-
+void Student::SetAge(int ageYrs) {
+	age = ageYrs;
 }
 
-void Student::SetNumDays() {
-
+void Student::SetDaysInCourse(int course1, int course2, int course3) {
+	daysInCourse = { course1, course2, course3 };
 }
 
-void Student::SetProgram() {
-
+void Student::SetProgram(DegreeProgram program) {
+	degreeProgram = program;
 }
 
 void Student::Print() {
-
+	int tempVal;
+	
+	cout << GetID() << "	" << GetFirst() << "	" << GetLast();
+	cout << "	" << GetEmail() << "	" << GetAge() << "	" << "{";
+	GetDaysInCourse();
+	cout << "}	";
+	cout << "	" << GetProgram() << endl;
 }
