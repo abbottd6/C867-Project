@@ -7,14 +7,17 @@
 using namespace std;
 
 Student::Student(string ID = "", string first = "", string last ="",
-	string emailaddress = "", int days1 = -1, int days2 = -1, 
+	string emailAddress = "",int ageYrs = -1, int days1 = -1, int days2 = -1, 
 	int days3 = -1, DegreeProgram degree = SOFTWARE) {
 	
 	studentID = ID;
 	firstName = first;
 	lastName = last;
-	email = emailaddress;
+	email = emailAddress;
+	age = ageYrs;
 	numDays1 = days1;
+	numDays2 = days2;
+	numDays3 = days3;
 	degreeProgram = degree;
 }
 
@@ -46,16 +49,16 @@ DegreeProgram Student::GetProgram() {
 	return degreeProgram;
 }
 
-void Student::SetID() {
-
+void Student::SetID(string ID) {
+	studentID = ID;
 }
 
-void Student::SetFirst() {
-
+void Student::SetFirst(string first) {
+	firstName = first;
 }
 
-void Student::SetLast() {
-
+void Student::SetLast(string last) {
+	lastName = last;
 }
 
 void Student::SetEmail() {

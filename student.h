@@ -10,7 +10,7 @@ using namespace std;
 class Student {
 	public:
 		Student(string ID, string first, string last, 
-			string emailaddress, int days1, int days2, int days3, 
+			string emailAddress, int ageYrs, int days1, int days2, int days3, 
 			DegreeProgram degree);
 		string GetID();
 		string GetFirst();
@@ -19,9 +19,9 @@ class Student {
 		int GetAge();
 		int GetNumDays();
 		DegreeProgram GetProgram();
-		void SetID();
-		void SetFirst();
-		void SetLast();
+		void SetID(string ID);
+		void SetFirst(string first);
+		void SetLast(string last);
 		void SetEmail();
 		void SetAge();
 		void SetNumDays();

@@ -8,5 +8,7 @@ using namespace std;
 
 class Roster {
 	public:
-		Student *classRosterArray[5];
+		
+		Student* classRosterArray[5];
+
 };
