@@ -9,11 +9,18 @@ using namespace std;
 class Roster {
 public:
 	Roster();
-	Student* Parse(string studentData);
+	~Roster();
+	Student* parse(string studentData);
+	void add(string studentID, string firstName, string lastName,
+		string email, int age, int daysInCourse1, int
+		daysInCourse2, int daysInCourse3, DegreeProgram
+		degreeProgram);
+	Student* classRosterArray[5] = { 0 , 0 , 0 , 0, 0 };
+	void PrintRoster(int i) const;
 	
 private:
-	Student* classRosterArray[5];
-	
+	int rosterIndex;
+
 };
 
 #endif
