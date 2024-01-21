@@ -14,8 +14,6 @@ Student::Student() {
 	daysInCourse2 = -2;
 	daysInCourse3 = -3;
 	degreeProgram = DegreeProgram::SOFTWARE;
-
-	
 }
 
 Student::Student(string studentID, string firstName, 
@@ -31,6 +29,7 @@ Student::Student(string studentID, string firstName,
 	this->daysInCourse3 = daysInCourse3;
 	this->degreeProgram = degreeProgram;
 }
+
 
 string Student::GetID() const {
 	return studentID;
