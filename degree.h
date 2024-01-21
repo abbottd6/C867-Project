@@ -1,7 +1,5 @@
 #pragma once
-#include <iostream>
 
-using namespace std;
+enum class DegreeProgram { SECURITY, NETWORK, SOFTWARE };
 
-enum DegreeProgram { SECURITY, NETWORK, SOFTWARE };
 

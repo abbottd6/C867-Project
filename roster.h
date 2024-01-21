@@ -1,12 +1,12 @@
 #pragma once
 #include <iostream>
-#include <string>
-#include <vector>
 #include "student.h"
+#include "degree.h"
 
 using namespace std;
 
 class Roster {
-	public:
-		Student* classRosterArray[5];
+	Student* classRosterArray[5];
+	Student* Parse(string studentData);
 };
+		

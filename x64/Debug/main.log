@@ -1,6 +1,7 @@
 ﻿  main.cpp
-  roster.cpp
-  student.cpp
-C:\Users\dayto\Desktop\WGU\C867 - Scripting and Programming Applications\main\student.cpp(82,6): warning C4101: 'tempVal': unreferenced local variable
-  Generating Code...
-  main.vcxproj -> C:\Users\dayto\Desktop\WGU\C867 - Scripting and Programming Applications\main\x64\Debug\main.exe
+C:\Users\dayto\Desktop\WGU\C867 - Scripting and Programming Applications\main\main.cpp(20,12): error C2248: 'Roster::Parse': cannot access private member declared in class 'Roster'
+  C:\Users\dayto\Desktop\WGU\C867 - Scripting and Programming Applications\main\roster.h(10,11):
+  see declaration of 'Roster::Parse'
+  C:\Users\dayto\Desktop\WGU\C867 - Scripting and Programming Applications\main\roster.h(8,7):
+  see declaration of 'Roster'
+  
