@@ -5,10 +5,11 @@
 #include "roster.h"
 
 using namespace std;
-/* THIS NEEDS TO GO SOMEWHERE MAYBE?
-for (int i = 0; i < 5; i++) {
-	classRosterArray[i] = new Student();
-}*/
+Roster::Roster() {
+	for (int i = 0; i < 5; i++) {
+		classRosterArray[i] = 0;
+	}
+}
 
 Student* Roster::Parse(string studentData) {
 	size_t commaRight = studentData.find(",");

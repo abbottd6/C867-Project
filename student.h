@@ -1,7 +1,8 @@
-#pragma once
+#ifndef Student_h
+#define Student_h
+
 #include <iostream>
 #include "degree.h"
-
 
 using namespace std;
 
@@ -17,7 +18,7 @@ class Student {
 		string GetLast() const;
 		string GetEmail() const;
 		int GetAge() const;
-		int GetDaysInCourse() const;
+		const int* GetDaysInCourse() const;
 		DegreeProgram GetProgram();
 		void SetID(string studentID);
 		void SetFirst(string firstName);
@@ -39,3 +40,5 @@ class Student {
 		DegreeProgram degreeProgram;
 		
 };
+
+#endif

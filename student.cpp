@@ -1,6 +1,5 @@
 #include <iostream>
 #include "student.h"
-#include "degree.h"
 
 using namespace std;
 
@@ -15,6 +14,7 @@ Student::Student() {
 	daysInCourse[2] = -3;
 	degreeProgram = DegreeProgram::SOFTWARE;
 
+	
 }
 
 Student::Student(string studentID, string firstName, 
@@ -51,10 +51,8 @@ int Student::GetAge() const {
 	return age;
 }
 
-int Student::GetDaysInCourse() const {
-	for (int i = 0; i < 3; i++) {
-		return daysInCourse[i];
-	}
+const int* Student::GetDaysInCourse() const {
+		return daysInCourse;
 }
 
 DegreeProgram Student::GetProgram() {
@@ -82,7 +80,9 @@ void Student::SetAge(int age) {
 }
 
 void Student::SetDaysInCourse(int daysInCourse[3]) {
-	this->daysInCourse[3] = daysInCourse[3];
+	for (int i = 0; i < 3; i++) {
+		this->daysInCourse[i] = daysInCourse[i];
+	}
 }
 
 void Student::SetProgram(DegreeProgram degreeProgram) {

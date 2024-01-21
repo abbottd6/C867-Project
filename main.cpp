@@ -7,6 +7,7 @@ using namespace std;
 
 int main() {
 	string degreeProgramStrings[] = { "SECURITY", "NETWORK", "SOFTWARE" };
+	Roster classRoster[5];
 	
 
 	const string studentData[] =
@@ -16,10 +17,10 @@ int main() {
 	"A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
 	"A5,Dayton,Abbott,dabbo44@wgu.edu,137,7,9,27,SOFTWARE" };
 	
-
-	for (int i = 0; i < 1; i++) {
-		Parse(studentData[i]);
+	for (int i = 0; i < 5; i++) {
+		classRoster[i].Parse(studentData[i]);
 	}
-
+	
+	
 	return 0;
 }
