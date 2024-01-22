@@ -94,8 +94,14 @@ void Student::SetProgram(DegreeProgram degreeProgram) {
 }
 
 void Student::Print() const {
+	int nameSize;
+
 	cout << GetID() << "	" << GetFirst() << "		" << GetLast();
-	cout << "	" << GetAge() << "		" << "{";
+	nameSize = 8 - GetLast().size();
+	for (int i = 0; i < nameSize; i++) {
+		cout << " ";
+	}
+	cout << "     " << GetAge() << "		" << "{";
 	for (int i = 0; i < 3; i++) {
 		if (i >= 0 && i < 2) {
 			cout << GetDaysInCourse(i) << ",";
