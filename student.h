@@ -19,9 +19,7 @@ class Student {
 		string GetLast() const;
 		string GetEmail() const;
 		int GetAge() const;
-		int GetDaysInCourse1() const;
-		int GetDaysInCourse2()	const;
-		int GetDaysInCourse3() const;
+		int GetDaysInCourse(int i) const;
 		DegreeProgram GetProgram();
 		void SetID(string studentID);
 		void SetFirst(string firstName);
@@ -40,9 +38,7 @@ class Student {
 		string lastName;
 		string email;
 		int age;
-		int daysInCourse1;
-		int daysInCourse2;
-		int daysInCourse3;
+		int daysInCourse[3];
 		DegreeProgram degreeProgram;
 		
 };

@@ -14,9 +14,9 @@ Student::Student() {
 	lastName = "Student";
 	email = "-";
 	age = -1;
-	daysInCourse1 = -1;
-	daysInCourse2 = -2;
-	daysInCourse3 = -3;
+	daysInCourse[0] = -1;
+	daysInCourse[1] = -2;
+	daysInCourse[2] = -3;
 	degreeProgram = SOFTWARE;
 }
 
@@ -28,9 +28,9 @@ Student::Student(string studentID, string firstName,
 	this->lastName = lastName;
 	this->email = email;
 	this->age = age;
-	this->daysInCourse1 = daysInCourse1;
-	this->daysInCourse2 = daysInCourse2;
-	this->daysInCourse3 = daysInCourse3;
+	this->daysInCourse[0] = daysInCourse1;
+	this->daysInCourse[1] = daysInCourse2;
+	this->daysInCourse[2] = daysInCourse3;
 	this->degreeProgram = degreeProgram;
 }
 
@@ -54,15 +54,10 @@ int Student::GetAge() const {
 	return age;
 }
 
-int Student::GetDaysInCourse1() const {
-	return daysInCourse1;
+int Student::GetDaysInCourse(int i) const {
+	return daysInCourse[i];
 }
-int Student::GetDaysInCourse2() const {
-	return daysInCourse2;
-}
-int Student::GetDaysInCourse3() const {
-	return daysInCourse3;
-}
+
 DegreeProgram Student::GetProgram() {
 	return degreeProgram;
 }
@@ -89,9 +84,9 @@ void Student::SetAge(int age) {
 
 void Student::SetDaysInCourse(int daysInCourse1, int daysInCourse2, int
 	daysInCourse3) {
-	this->daysInCourse1 = daysInCourse1;
-	this->daysInCourse2 = daysInCourse2;
-	this->daysInCourse3 = daysInCourse3;
+	this->daysInCourse[0] = daysInCourse1;
+	this->daysInCourse[1] = daysInCourse2;
+	this->daysInCourse[2] = daysInCourse3;
 }
 
 void Student::SetProgram(DegreeProgram degreeProgram) {
@@ -99,9 +94,16 @@ void Student::SetProgram(DegreeProgram degreeProgram) {
 }
 
 void Student::Print() const {
-	cout << GetID() << "	" << GetFirst() << "	" << GetLast();
-	cout << "	" << GetAge() << "	" << "{" << GetDaysInCourse1() 
-		<< ", " << GetDaysInCourse2() << ", " << GetDaysInCourse3() << "}	";
+	cout << GetID() << "	" << GetFirst() << "		" << GetLast();
+	cout << "	" << GetAge() << "		" << "{";
+	for (int i = 0; i < 3; i++) {
+		if (i >= 0 && i < 2) {
+			cout << GetDaysInCourse(i) << ",";
+		}
+		else if (i == 2) {
+			cout << GetDaysInCourse(i) << "}	";
+		}
+	}
 	cout << degreeProgramStrings[static_cast<int>(degreeProgram)] << endl;
 }
 

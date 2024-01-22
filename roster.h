@@ -20,9 +20,9 @@ public:
 	void printAvgDaysInCourse(string studentID);
 	void printInvalidEmails() const;
 	void printByDegreeProgram(DegreeProgram degreeProgram);
-	void PrintRoster(int i) const;
-private:
+	void printAll(int i) const;
 	Student* classRosterArray[5];
+private:
 	int rosterIndex = 0;
 };
 

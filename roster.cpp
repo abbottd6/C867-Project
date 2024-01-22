@@ -40,17 +40,18 @@ Student* Roster::parse(string studentData) {
 	commaRight = studentData.find(",", commaLeft);
 	int age = stoi(studentData.substr(commaLeft, commaRight - commaLeft));
 
+	int courseDays[3];
 	commaLeft = commaRight + 1;
 	commaRight = studentData.find(",", commaLeft);
-	int courseDays1 = stoi(studentData.substr(commaLeft, commaRight - commaLeft));
+	courseDays[0] = stoi(studentData.substr(commaLeft, commaRight - commaLeft));
 
 	commaLeft = commaRight + 1;
 	commaRight = studentData.find(",", commaLeft);
-	int courseDays2 = stoi(studentData.substr(commaLeft, commaRight - commaLeft));
+	courseDays[1] = stoi(studentData.substr(commaLeft, commaRight - commaLeft));
 
 	commaLeft = commaRight + 1;
 	commaRight = studentData.find(",", commaLeft);
-	int courseDays3 = stoi(studentData.substr(commaLeft, commaRight - commaLeft));
+	courseDays[2] = stoi(studentData.substr(commaLeft, commaRight - commaLeft));
 
 	commaLeft = commaRight + 1;
 	commaRight = studentData.find(",", commaLeft);
@@ -67,8 +68,8 @@ Student* Roster::parse(string studentData) {
 	}
 
 	if (rosterIndex < 5) {
-		add(studentID, firstName, lastName, email, age, courseDays1
-			, courseDays2, courseDays3, degreeProgram);
+		add(studentID, firstName, lastName, email, age, courseDays[0]
+			, courseDays[1], courseDays[2], degreeProgram);
 	}
 	else {
 		rosterIndex = 0;
@@ -94,22 +95,24 @@ void Roster::removeID(string studentID) {
 				" was not found." << endl;
 		}
 		else if (classRosterArray[i]->GetID() == studentID) {
-			delete classRosterArray[i];
+			//delete classRosterArray[i];
 			classRosterArray[i] = nullptr;
-			cout << "Removing the student with ID: " << studentID <<
-				"." << endl;
+			cout << "Removing the student with ID: " << studentID << endl;
 		}
 	}
 }
 
 void Roster::printAvgDaysInCourse(string studentID) {
-	int avgDays;
+	int avgDays = 0;
 	
 	for (int i = 0; i < 5; i++) {
 		if (classRosterArray[i] != nullptr && classRosterArray[i]->GetID() == studentID) {
-			avgDays = (classRosterArray[i]->GetDaysInCourse1() 
-				+ classRosterArray[i]->GetDaysInCourse2()
-				+ classRosterArray[i]->GetDaysInCourse3()) / 3;
+			for (int j = 0; j < 3; j++) {
+				avgDays = avgDays + classRosterArray[i]->GetDaysInCourse(j);
+				if (j == 2) {
+					avgDays = avgDays / 3;
+				}
+			}
 			cout << "Student ID: " << studentID << ", average days in";
 			cout << " course is : " << avgDays << endl;
 		}
@@ -150,7 +153,7 @@ void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
 	cout << endl;
 }
 
-void Roster::PrintRoster(int i) const {
+void Roster::printAll(int i) const {
 	if (classRosterArray[i] != nullptr) {
 		classRosterArray[i]->Print();
 	}
