@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "student.h"
 #include "roster.h"
 
@@ -51,10 +52,15 @@ int Student::GetAge() const {
 	return age;
 }
 
-void Student::GetDaysInCourse() const {
-	cout << daysInCourse1 << ", " << daysInCourse2 << ", " << daysInCourse3;
+int Student::GetDaysInCourse1() const {
+	return daysInCourse1;
 }
-
+int Student::GetDaysInCourse2() const {
+	return daysInCourse2;
+}
+int Student::GetDaysInCourse3() const {
+	return daysInCourse3;
+}
 DegreeProgram Student::GetProgram() {
 	return degreeProgram;
 }
@@ -79,11 +85,11 @@ void Student::SetAge(int age) {
 	this->age = age;
 }
 
-void Student::SetDaysInCourse(int daysInCourse1, int daysInCourse2, int 
-		daysInCourse3) {
-			this->daysInCourse1 = daysInCourse1;
-			this->daysInCourse2 = daysInCourse2;
-			this->daysInCourse3 = daysInCourse3;
+void Student::SetDaysInCourse(int daysInCourse1, int daysInCourse2, int
+	daysInCourse3) {
+	this->daysInCourse1 = daysInCourse1;
+	this->daysInCourse2 = daysInCourse2;
+	this->daysInCourse3 = daysInCourse3;
 }
 
 void Student::SetProgram(DegreeProgram degreeProgram) {
@@ -95,7 +101,8 @@ void Student::Print() const {
 
 	cout << GetID() << "	" << GetFirst() << "	" << GetLast();
 	cout << "	" << GetEmail() << "	" << GetAge() << "	" << "{";
-	GetDaysInCourse();
+	cout << GetDaysInCourse1() << ", " << GetDaysInCourse2() << ", " <<
+		GetDaysInCourse3();
 	cout << "}	";
 	cout << degreeProgramStrings[static_cast<int>(degreeProgram)] << endl;
 }

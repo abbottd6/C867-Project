@@ -19,7 +19,9 @@ class Student {
 		string GetLast() const;
 		string GetEmail() const;
 		int GetAge() const;
-		void GetDaysInCourse() const;
+		int GetDaysInCourse1() const;
+		int GetDaysInCourse2()	const;
+		int GetDaysInCourse3() const;
 		DegreeProgram GetProgram();
 		void SetID(string studentID);
 		void SetFirst(string firstName);

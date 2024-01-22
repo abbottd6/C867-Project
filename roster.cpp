@@ -92,6 +92,20 @@ void Roster::removeID(string studentID) {
 	}
 }
 
+void Roster::printAvgDaysInCourse(string studentID) {
+	int avgDays;
+	
+	for (int i = 0; i < 5; i++) {
+		if (classRosterArray[i]->GetID() == studentID) {
+			avgDays = (classRosterArray[i]->GetDaysInCourse1() 
+				+ classRosterArray[i]->GetDaysInCourse2()
+				+ classRosterArray[i]->GetDaysInCourse3()) / 3;
+			cout << "Student ID: " << studentID << ", average days in";
+			cout << " course is : " << avgDays << endl;
+		}
+	}
+}
+
 void Roster::PrintRoster(int i) const {
 	if (classRosterArray[i] != nullptr)
 		classRosterArray[i]->Print();

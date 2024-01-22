@@ -23,6 +23,14 @@ int main() {
 	}
 
 	cout << endl;
+
+	classRoster.printAvgDaysInCourse("A1");
+	classRoster.printAvgDaysInCourse("A2");
+	classRoster.printAvgDaysInCourse("A3");
+	classRoster.printAvgDaysInCourse("A4");
+	classRoster.printAvgDaysInCourse("A5");
+
+	cout << endl;
 	
 	classRoster.removeID("A3");
 	classRoster.removeID("A3");
