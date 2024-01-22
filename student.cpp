@@ -4,9 +4,9 @@
 #include "roster.h"
 #include "degree.h"
 
-using namespace std;
+extern const string degreeProgramStrings[] = { "SECURITY", "NETWORK", "SOFTWARE" };
 
-string degreeProgramStrings[] = { "SECURITY", "NETWORK", "SOFTWARE" };
+using namespace std;
 
 Student::Student() {
 	studentID = "NA";
@@ -17,7 +17,7 @@ Student::Student() {
 	daysInCourse1 = -1;
 	daysInCourse2 = -2;
 	daysInCourse3 = -3;
-	degreeProgram = DegreeProgram::SOFTWARE;
+	degreeProgram = SOFTWARE;
 }
 
 Student::Student(string studentID, string firstName, 
@@ -33,7 +33,6 @@ Student::Student(string studentID, string firstName,
 	this->daysInCourse3 = daysInCourse3;
 	this->degreeProgram = degreeProgram;
 }
-
 
 string Student::GetID() const {
 	return studentID;
@@ -100,10 +99,9 @@ void Student::SetProgram(DegreeProgram degreeProgram) {
 }
 
 void Student::Print() const {
-	//string degreeProgramStrings[] = { "SECURITY", "NETWORK", "SOFTWARE" };
-	
 	cout << GetID() << "	" << GetFirst() << "	" << GetLast();
 	cout << "	" << GetAge() << "	" << "{" << GetDaysInCourse1() 
 		<< ", " << GetDaysInCourse2() << ", " << GetDaysInCourse3() << "}	";
 	cout << degreeProgramStrings[static_cast<int>(degreeProgram)] << endl;
 }
+

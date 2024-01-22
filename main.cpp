@@ -14,6 +14,11 @@ int main() {
 	"A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
 	"A5,Dayton,Abbott,dabbo44@wgu.edu,137,7,9,27,SOFTWARE" };
 	
+	cout << "C867 - Scripting and Programming Applications" << endl;
+	cout << "Language: C++" << endl;
+	cout << "WGU Student ID: " << endl;
+	cout << "Dayton Abbott" << endl << endl;
+
 	for (int i = 0; i < 5; i++) {
 		classRoster.parse(studentData[i]);
 	}
@@ -23,12 +28,11 @@ int main() {
 	for (int i = 0; i < 5; i++) {
 			classRoster.PrintRoster(i);
 	}
+
 	cout << endl;
 
 	classRoster.printInvalidEmails();
-
-	cout << endl;
-
+	
 	classRoster.printAvgDaysInCourse("A1");
 	classRoster.printAvgDaysInCourse("A2");
 	classRoster.printAvgDaysInCourse("A3");
@@ -36,8 +40,9 @@ int main() {
 	classRoster.printAvgDaysInCourse("A5");
 
 	cout << endl;
+
+	classRoster.printByDegreeProgram(SOFTWARE);
 	
-	classRoster.removeID("A3");
 	classRoster.removeID("A3");
 
 	cout << endl;
@@ -45,5 +50,11 @@ int main() {
 	for (int i = 0; i < 5; i++) {
 		classRoster.PrintRoster(i);
 	}
+
+	cout << endl;
+
+	classRoster.removeID("A3");
+	//classRoster.~Roster();
+
 	return 0;
 }

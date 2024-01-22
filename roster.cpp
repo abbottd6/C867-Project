@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include "degree.h"
@@ -7,7 +6,18 @@
 
 using namespace std;
 
-Roster::Roster() {}
+Roster::Roster() {
+	for (int i = 0; i < 5; i++) {
+		classRosterArray[i] = nullptr;
+	}
+}
+Roster::~Roster() {
+	for (int i = 0; i < 5; i++) {
+		delete classRosterArray[i];
+		classRosterArray[i] = nullptr;
+	}
+	cout << "DONE." << endl;
+}
 
 Student* Roster::parse(string studentData) {
 
@@ -45,22 +55,25 @@ Student* Roster::parse(string studentData) {
 	commaLeft = commaRight + 1;
 	commaRight = studentData.find(",", commaLeft);
 	string strDegree = studentData.substr(commaLeft, commaRight - commaLeft);
-	DegreeProgram degreeProgram;
+	DegreeProgram degreeProgram = SOFTWARE;
 	if (strDegree == "SECURITY") {
-		degreeProgram = DegreeProgram::SECURITY;
+		degreeProgram = SECURITY;
 	}
 	else if (strDegree == "NETWORK") {
-		degreeProgram = DegreeProgram::NETWORK;
+		degreeProgram = NETWORK;
 	}
 	else if (strDegree == "SOFTWARE") {
-		degreeProgram = DegreeProgram::SOFTWARE;
+		degreeProgram = SOFTWARE;
 	}
 
-	add(studentID, firstName, lastName, email, age, courseDays1
-		, courseDays2, courseDays3, degreeProgram);
-
+	if (rosterIndex < 5) {
+		add(studentID, firstName, lastName, email, age, courseDays1
+			, courseDays2, courseDays3, degreeProgram);
+	}
+	else {
+		rosterIndex = 0;
+	}
 	return classRosterArray[rosterIndex];
-
 }
 
 void Roster::add(string studentID, string firstName, string lastName,
@@ -68,12 +81,9 @@ void Roster::add(string studentID, string firstName, string lastName,
 	daysInCourse2, int daysInCourse3, DegreeProgram
 	degreeProgram) {
 
-	if (rosterIndex < 5) {
+	if (rosterIndex < 5 && rosterIndex >= 0) {
 		classRosterArray[rosterIndex++] = new Student(studentID, firstName, lastName, email, age, daysInCourse1
 			, daysInCourse2, daysInCourse3, degreeProgram);
-	}
-	else {
-		rosterIndex = 0;
 	}
 }
 
@@ -89,7 +99,6 @@ void Roster::removeID(string studentID) {
 			cout << "Removing the student with ID: " << studentID <<
 				"." << endl;
 		}
-		
 	}
 }
 
@@ -97,7 +106,7 @@ void Roster::printAvgDaysInCourse(string studentID) {
 	int avgDays;
 	
 	for (int i = 0; i < 5; i++) {
-		if (classRosterArray[i]->GetID() == studentID) {
+		if (classRosterArray[i] != nullptr && classRosterArray[i]->GetID() == studentID) {
 			avgDays = (classRosterArray[i]->GetDaysInCourse1() 
 				+ classRosterArray[i]->GetDaysInCourse2()
 				+ classRosterArray[i]->GetDaysInCourse3()) / 3;
@@ -108,7 +117,7 @@ void Roster::printAvgDaysInCourse(string studentID) {
 }
 
 void Roster::printInvalidEmails() const {
-	int atIndex;
+	size_t atIndex;
 	cout << "Displaying invalid email addresses:" << endl << endl;
 
 	for (int i = 0; i < 5; i++) {
@@ -124,15 +133,28 @@ void Roster::printInvalidEmails() const {
 				cout << classRosterArray[i]->GetEmail() << " - is invalid." << endl;
 			}
 		}
-
 	}
+	cout << endl;
+}
+
+void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
+	string degreeProgramStrings[] = { "SECURITY", "NETWORK", "SOFTWARE" };
+	
+	cout << "Showing students in the degree program: " <<
+		degreeProgramStrings[static_cast<int>(degreeProgram)] << endl << endl;
+	for (int i = 0; i < 5; i++) {
+		if (classRosterArray[i]->GetProgram() == degreeProgram) {
+			classRosterArray[i]->Print();
+		}
+	}
+	cout << endl;
 }
 
 void Roster::PrintRoster(int i) const {
-	if (classRosterArray[i] != nullptr)
+	if (classRosterArray[i] != nullptr) {
 		classRosterArray[i]->Print();
+	}
 }
-
 
 
 

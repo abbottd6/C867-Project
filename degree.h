@@ -1,7 +1,7 @@
 #ifndef DegreeProgram_h
 #define DegreeProgram_h
 
-enum class DegreeProgram { SECURITY, NETWORK, SOFTWARE };
+enum DegreeProgram { SECURITY, NETWORK, SOFTWARE };
 
 #endif
 

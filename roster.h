@@ -4,11 +4,13 @@
 #include <iostream>
 #include "student.h"
 
+
 using namespace std;
 
 class Roster {
 public:
 	Roster();
+	~Roster();
 	Student* parse(string studentData);
 	void add(string studentID, string firstName, string lastName,
 		string email, int age, int daysInCourse1, int
@@ -17,6 +19,7 @@ public:
 	void removeID(string studentID);
 	void printAvgDaysInCourse(string studentID);
 	void printInvalidEmails() const;
+	void printByDegreeProgram(DegreeProgram degreeProgram);
 	void PrintRoster(int i) const;
 private:
 	Student* classRosterArray[5];
