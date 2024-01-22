@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <string>
+#include "degree.h"
 #include "student.h"
 #include "roster.h"
 
@@ -103,6 +104,27 @@ void Roster::printAvgDaysInCourse(string studentID) {
 			cout << "Student ID: " << studentID << ", average days in";
 			cout << " course is : " << avgDays << endl;
 		}
+	}
+}
+
+void Roster::printInvalidEmails() const {
+	int atIndex;
+	cout << "Displaying invalid email addresses:" << endl << endl;
+
+	for (int i = 0; i < 5; i++) {
+		if (classRosterArray[i]->GetEmail().find("@") == string::npos) {
+		cout << classRosterArray[i]->GetEmail() << " - is invalid." << endl;
+		}
+		else {
+			atIndex = classRosterArray[i]->GetEmail().find("@");
+			if (classRosterArray[i]->GetEmail().find(".", atIndex) == string::npos) {
+				cout << classRosterArray[i]->GetEmail() << " - is invalid." << endl;
+			}
+			else if (classRosterArray[i]->GetEmail().find(" ") != string::npos) {
+				cout << classRosterArray[i]->GetEmail() << " - is invalid." << endl;
+			}
+		}
+
 	}
 }
 

@@ -16,6 +16,7 @@ public:
 		degreeProgram);
 	void removeID(string studentID);
 	void printAvgDaysInCourse(string studentID);
+	void printInvalidEmails() const;
 	void PrintRoster(int i) const;
 private:
 	Student* classRosterArray[5];

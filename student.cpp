@@ -2,8 +2,11 @@
 #include <string>
 #include "student.h"
 #include "roster.h"
+#include "degree.h"
 
 using namespace std;
+
+string degreeProgramStrings[] = { "SECURITY", "NETWORK", "SOFTWARE" };
 
 Student::Student() {
 	studentID = "NA";
@@ -97,12 +100,10 @@ void Student::SetProgram(DegreeProgram degreeProgram) {
 }
 
 void Student::Print() const {
-	string degreeProgramStrings[] = { "SECURITY", "NETWORK", "SOFTWARE" };
-
+	//string degreeProgramStrings[] = { "SECURITY", "NETWORK", "SOFTWARE" };
+	
 	cout << GetID() << "	" << GetFirst() << "	" << GetLast();
-	cout << "	" << GetEmail() << "	" << GetAge() << "	" << "{";
-	cout << GetDaysInCourse1() << ", " << GetDaysInCourse2() << ", " <<
-		GetDaysInCourse3();
-	cout << "}	";
+	cout << "	" << GetAge() << "	" << "{" << GetDaysInCourse1() 
+		<< ", " << GetDaysInCourse2() << ", " << GetDaysInCourse3() << "}	";
 	cout << degreeProgramStrings[static_cast<int>(degreeProgram)] << endl;
 }

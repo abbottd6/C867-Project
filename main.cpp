@@ -18,9 +18,14 @@ int main() {
 		classRoster.parse(studentData[i]);
 	}
 
+	cout << "Displaying all students:" << endl << endl;
+
 	for (int i = 0; i < 5; i++) {
 			classRoster.PrintRoster(i);
 	}
+	cout << endl;
+
+	classRoster.printInvalidEmails();
 
 	cout << endl;
 
